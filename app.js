@@ -1,26 +1,16 @@
-'use strict'
-let tasks = ["Выучить основы JS", "Помыть посуду", "Купить продукты"];
+'use strict';
 
-function addTask(list, taskName){
-    if(list.includes(taskName)){
-        console.log('Такая задача уже есть');
-    }else{
-        list.push(taskName);
+const names = ["иван", "АННА", "петр", "ОЛЬГА"];
+
+function formatNames(namesArray){
+    const newArray = [];
+    for (let name of namesArray){
+        let firstSymbol = name[0].toUpperCase();
+        let taleName = (name.slice(1)).toLowerCase();
+        newArray.push(firstSymbol.concat(taleName));
     }
+
+    return newArray;
 }
 
-function completeTask(list, taskName){
-    if(list.indexOf(taskName) !== -1){
-        list.splice(list.indexOf(taskName), 1);
-    }else{
-        console.log('Такой задачи не существует');
-    }
-}
-
-addTask(tasks, 'Помыть посуду');
-addTask(tasks, 'Пропылесосить квартиру');
-addTask(tasks, 'Выгулить собаку');
-
-completeTask(tasks, 'Выгулить собаку');
-
-console.log(tasks);
+console.log(formatNames(names));
